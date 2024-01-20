@@ -90,12 +90,6 @@
 	if(!GLOB.pod_hair_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list)
 //Monkestation Addition Start
-	if(!GLOB.ipc_screens_list.len)
-		init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_screens, GLOB.ipc_screens_list)
-	if(!GLOB.ipc_antennas_list.len)
-		init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_antennas, GLOB.ipc_antennas_list)
-	if(!GLOB.ipc_chassis_list.len)
-		init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_chassis, GLOB.ipc_chassis_list)
 	if(!GLOB.tails_list_monkey.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/monkey, GLOB.tails_list_monkey)
 	if(!GLOB.anime_top_list.len)
@@ -133,9 +127,6 @@
 		"moth_wings" = pick(GLOB.moth_wings_list),
 		"moth_antennae" = pick(GLOB.moth_antennae_list),
 		"moth_markings" = pick(GLOB.moth_markings_list),
-		"ipc_screen" = pick(GLOB.ipc_screens_list), //Monkestation Addition
-		"ipc_antenna" = pick(GLOB.ipc_antennas_list), //Monkestation Addition
-		"ipc_chassis" = pick(GLOB.ipc_chassis_list), //Monkestation Addition
 		"tail_monkey" = "Chimp", //Monkestation Addition
 		"pod_hair" = pick(GLOB.pod_hair_list),
 		"anime_top" = pick(GLOB.anime_top_list), //Monkestation Addition
