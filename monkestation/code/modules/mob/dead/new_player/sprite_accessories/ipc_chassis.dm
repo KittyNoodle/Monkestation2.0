@@ -38,7 +38,7 @@
 
 /datum/sprite_accessory/ipc_chassis/xion_manufacturing_group_2
 	name = "Xion Manufacturing Group 2.0"
-	icon_state = "zhpipc"
+	icon_state = "xm2ipc"
 
 /datum/sprite_accessory/ipc_chassis/zeng_hu_pharmaceuticals
 	name = "Zeng-Hu Pharmaceuticals"
@@ -48,3 +48,28 @@
 /datum/sprite_accessory/ipc_chassis/star_industrial
 	name = "Star Industrial"
 	icon_state = "staripc"
+
+/datum/sprite_accessory/ipc_chassis/cybersun_industries_adlr
+	name = "Cybersun Industries 'Eagle'"
+	icon_state = "cieipc"
+
+/datum/sprite_accessory/ipc_chassis/cybersun_industries_lstr
+	name = "Cybersun Industries 'Magpie'"
+	icon_state = "cilipc"
+
+/datum/sprite_accessory/ipc_chassis/cybersun_industries_arar
+	name = "Cybersun Industries 'Macaw'"
+	icon_state = "cimipc"
+
+/datum/sprite_accessory/ipc_chassis/cybersun_industries_flkr
+	name = "Cybersun Industries 'Falcon'"
+	icon_state = "cifipc"
+/*
+/datum/sprite_accessory/ipc_chassis/aethero_synth_m
+	name = "Aetherofusion Synth Type-M"
+	icon_state = "aemipc"
+
+/datum/sprite_accessory/ipc_chassis/aethero_synth_f
+	name = "Aetherofusion Synth Type-F"
+	icon_state = "aefipc"
+*/
