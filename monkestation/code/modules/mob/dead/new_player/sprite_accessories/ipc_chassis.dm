@@ -2,6 +2,7 @@
 	icon = null
 	icon_state = "blegh" // In order to pull the chassis correctly, we need AN icon_state(see line 36-39). It doesn't have to be useful, because it isn't used.
 	color_src = FALSE
+	var/screen_enabled = TRUE
 
 /datum/sprite_accessory/ipc_chassis/mcgreyscale
 	name = "Morpheus Cyberkinetics (Custom)"
@@ -52,24 +53,30 @@
 /datum/sprite_accessory/ipc_chassis/cybersun_industries_adlr
 	name = "Cybersun Industries 'Eagle'"
 	icon_state = "cieipc"
+	screen_enabled = FALSE
 
 /datum/sprite_accessory/ipc_chassis/cybersun_industries_lstr
 	name = "Cybersun Industries 'Magpie'"
 	icon_state = "cilipc"
+	screen_enabled = FALSE
 
 /datum/sprite_accessory/ipc_chassis/cybersun_industries_arar
 	name = "Cybersun Industries 'Macaw'"
 	icon_state = "cimipc"
+	screen_enabled = FALSE
 
 /datum/sprite_accessory/ipc_chassis/cybersun_industries_flkr
 	name = "Cybersun Industries 'Falcon'"
 	icon_state = "cifipc"
+	screen_enabled = FALSE
 /*
 /datum/sprite_accessory/ipc_chassis/aethero_synth_m
 	name = "Aetherofusion Synth Type-M"
 	icon_state = "aemipc"
+	screen_enabled = FALSE
 
 /datum/sprite_accessory/ipc_chassis/aethero_synth_f
 	name = "Aetherofusion Synth Type-F"
 	icon_state = "aefipc"
+	screen_enabled = FALSE
 */

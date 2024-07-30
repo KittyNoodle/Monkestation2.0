@@ -31,7 +31,6 @@
 		EYECOLOR,
 		LIPS,
 		HAIR,
-		NOEYESPRITES,
 		NOTRANSSTING,
 		NOHUSK
 	)
@@ -87,6 +86,8 @@
 	COOLDOWN_DECLARE(blend_cd)
 	var/blending
 
+	var/has_screen = TRUE //do we have a screen. Used to determine if we mess with the screen or not
+
 /datum/species/ipc/get_scream_sound(mob/living/carbon/human/human)
 	return 'monkestation/sound/voice/screams/silicon/scream_silicon.ogg'
 
@@ -118,7 +119,7 @@
 	if(L)
 		L.Remove(C)
 		QDEL_NULL(L)
-	if(ishuman(C) && !change_screen)
+	if(ishuman(C) && !change_screen && has_screen)
 		change_screen = new
 		change_screen.Grant(C)
 
@@ -187,7 +188,8 @@
 /datum/species/ipc/spec_revival(mob/living/carbon/human/H)
 	H.notify_ghost_cloning("You have been repaired!")
 	H.grab_ghost()
-	H.dna.features["ipc_screen"] = "BSOD"
+	if(has_screen)
+		H.dna.features["ipc_screen"] = "BSOD"
 	H.update_body()
 	playsound(H, 'monkestation/sound/voice/dialup.ogg', 25)
 	H.say("Reactivating [pick("core systems", "central subroutines", "key functions")]...")
@@ -203,8 +205,9 @@
 	if(H.stat == DEAD)
 		return
 	H.say("Unit [H.real_name] is fully functional. Have a nice day.")
-	switch_to_screen(H, "Console")
-	addtimer(CALLBACK(src, PROC_REF(switch_to_screen), H, saved_screen), 5 SECONDS)
+	if(has_screen)
+		switch_to_screen(H, "Console")
+		addtimer(CALLBACK(src, PROC_REF(switch_to_screen), H, saved_screen), 5 SECONDS)
 	playsound(H.loc, 'sound/machines/chime.ogg', 50, TRUE)
 	H.visible_message(span_notice("[H]'s [change_screen ? "monitor lights up" : "eyes flicker to life"]!"), span_notice("All systems nominal. You're back online!"))
 	return
@@ -217,6 +220,11 @@
 	if(!chassis_of_choice)
 		chassis_of_choice = GLOB.ipc_chassis_list[pick(GLOB.ipc_chassis_list)]
 		C.dna.features["ipc_chassis"] = pick(GLOB.ipc_chassis_list)
+
+	if(!chassis_of_choice.screen_enabled)
+		has_screen = FALSE
+		C.dna.features["ipc_screen"] = null
+		C.update_body()
 
 	for(var/obj/item/bodypart/BP as() in C.bodyparts) //Override bodypart data as necessary
 		BP.limb_id = chassis_of_choice.icon_state
